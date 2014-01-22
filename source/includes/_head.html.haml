@@ -1,0 +1,19 @@
+%head
+  %meta{charset: 'utf-8'}
+  %meta{'http-equiv' => 'X-UA-Compatible', content: 'ID=edge;chrome=1'}
+  %title
+    - unless current_article.nil?
+      = current_article.title
+    - else
+      = current_page.data.title || "The Cyber Generation"
+
+  :javascript
+    WebFontConfig = {};
+
+  = stylesheet_link_tag :site
+
+  %meta{'http-equiv' => 'CACHE-CONTROL', content: 'NO-CACHE'}
+  %meta{name: 'viewport', content: 'width=device-width, initial-scale=1'}
+
+  %link{href: '/images/favicon.png', rel: 'shortcut icon', type: 'image/x-icon'}
+  %link{href: '/images/favicon.png', rel: 'icon', type: 'image/x-icon'}
