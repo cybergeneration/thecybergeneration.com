@@ -1,0 +1,17 @@
+!!!5
+%html
+
+  = partial 'includes/head'
+
+  %body{class: page_classes, itemscope: true, itemtype: 'http://schema.org/WebPage'}
+
+    = partial 'includes/header'
+
+    .index{role: 'main', itemprop: 'mainContentOfPage'}
+      = yield
+
+    = partial 'includes/footer'
+
+    = javascript_include_tag :all
+
+    = partial 'includes/google-analytics'
