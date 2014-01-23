@@ -1,5 +1,184 @@
 @import "bootstrap";
 
+$orange: #ff9933;
+$dark-orange: #a35d17;
+$charcoal: #747d7d;
+$dark-charcoal: #444d4d;
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+h1, h2 {
+  font-family: 'Roboto', 'Open Sans', sans-serif;
+}
+
+.navbar {
+  margin-bottom: 0;
+}
 .navbar-brand {
-  max-width: 70%;
+  img {
+    height: 20px;
+    width: auto;
+  }
+  @media (min-width: $screen-sm-min) {
+    img {
+      height: 100%;
+      width: auto;
+    }
+    height: 50px;
+    margin-top: -7px;
+    @media (min-width: $screen-md-min) {
+      height: 70px;
+      margin-top: -4px;
+    }
+    @media (min-width: $screen-lg-min) {
+      height: 90px;
+    }
+  }
+}
+.navbar-nav {
+  @media (min-width: $screen-md-min) {
+    margin-top: 12px;
+    > li > a {
+      font-weight: 400;
+      letter-spacing: 1px;
+      font-family: 'Roboto', 'Open Sans', sans-serif;
+      border-bottom: 3px transparent solid;
+      color: $charcoal;
+      &:hover {
+        background: 0 none;
+        color: black;
+        border-bottom: 3px orange solid;
+      }
+    }
+  }
+  @media (min-width: $screen-lg-min) {
+    margin-top: 34px;
+    font-size: 115%;
+  }
+}
+
+
+.cg-banner {
+  background: #06080e url('/images/jumbobg.jpg') top center no-repeat;
+  box-shadow: inset 0 3px 2px #333;
+  @media (min-width: $screen-sm-min) {
+    min-height: 300px;
+  }
+  @media (min-width: $screen-md-min) {
+    padding-top: 66px;
+    min-height: 400px;
+    h1 {
+      font-size: 70px;
+    }
+    p {
+      font-size: 28px;
+    }
+  }
+  @media (min-width: $screen-lg-min) {
+    padding-top: 110px;
+    min-height: 500px;
+    h1 {
+      font-size: 80px;
+    }
+    p {
+      font-size: 36px;
+    }
+  }
+  text-align: center;
+  h1 {
+    font-weight: 300;
+    font-family: 'Roboto', 'Open Sans', sans-serif;
+    color: white;
+  }
+  p {
+    color: #aaa;
+  }
+  .btn-primary {
+    background-color: $orange;
+    border-color: $dark-orange;
+    font-weight: 300;
+    @media (min-width: $screen-md-min) {
+      font-size: 22px;
+      margin-top: 15px;
+      padding: 10px 40px;
+      @media (min-width: $screen-lg-min) {
+        padding: 12px 50px;
+        font-size: 26px;
+      }
+    }
+  }
+}
+
+.cg-icon {
+  display: block;
+  margin: 0 auto 15px auto;
+  width: 90px;
+  height: 90px;
+  background: url('/images/icons.png') no-repeat;
+  &.cg-icon-data {
+    background-position: -180px 0;
+  }
+  &.cg-icon-bulb {
+    background-position: -90px 0;
+  }
+}
+.cg-callouts {
+  text-align: center;
+  margin: 30px auto;
+
+  h2 {
+    font-weight: 400;
+  }
+  
+  p {
+    color: $dark-charcoal;
+    font-size: 120%;
+  }
+}
+
+.cg-partners {
+  opacity: 0.54;
+  margin: 60px auto;
+  
+  .badges {
+    div {
+      line-height: 140px;
+      display: block;
+      height: 140px;
+      img {
+        max-width: 100%;
+        vertical-align: middle;
+      }
+    }
+  }
+}
+
+.cg-footer {
+  margin: 60px auto 30px;
+
+  img {
+    display: block;
+    margin: 0 auto;
+  }
+  nav {
+    display: block;
+    margin: 15px auto;
+    ul {
+      text-align: center;
+      li {
+        float: none;
+        display: inline;
+        a {
+          display: inline-block;
+          color: $charcoal;
+
+          &:hover {
+            color: $dark-charcoal;
+          }
+        }
+      }
+    }
+  }
 }
