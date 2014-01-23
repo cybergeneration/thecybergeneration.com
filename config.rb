@@ -3,6 +3,14 @@ require 'builder'
 Time.zone = "America/New_York"
 
 activate :blog do |blog|
+  blog.prefix = "blog" 
+  blog.sources = "posts/{year}-{month}-{day}-{title}.html"
+  blog.layout = "blog/article"
+end
+=begin
+
+activate :blog do |blog|
+  blog.prefix = "blog"
   blog.permalink = "{year}/{month}/{day}/{title}.html"
   blog.sources = "posts/{year}-{month}-{day}-{title}.html"
   blog.taglink = "tags/{tag}.html"
@@ -15,20 +23,37 @@ activate :blog do |blog|
   blog.default_extension = ".markdown"
 
   blog.tag_template = "tag.html"
-  blog.calendar_template = "calendar.html"
+  blog.calendar_template = "blog.html"
 
   blog.paginate = true
   blog.per_page = 10
   blog.page_link = "page/{num}"
 end
+=end
 
 module Middleman::Blog::BlogArticle
   def summary
     data['summary']
   end
+  def image
+    data['image']
+  end
+  def author
+    data['author']
+  end
 end
 
 helpers do
+  def nav_link(link_text, url, options={})
+    options[:class] ||= ""
+    options[:class] << " active" if url == current_page.url
+    link_to(link_text, url, options)
+  end
+
+  def nav_active(page)
+    @page_id == page ? {:class => "active"} : {}
+  end
+
   def tag_links(tags)
     tags.map do |tag|
       link_to tag_path(tag), class: 'tag' do
@@ -41,9 +66,8 @@ helpers do
     blog.articles.select { |article| article.tags.include?(tag) }.size
   end
 end
-
 set :markdown_engine, :redcarpet
-set :markdown, :layout_engine => :erb, :fenced_code_blocks => true, :smartypants => true
+set :markdown, :layout_engine => :haml, :fenced_code_blocks => true, :smartypants => true
 activate :syntax
 activate :asset_hash, ignore: /images/
 page "/sitemap.xml", layout: false

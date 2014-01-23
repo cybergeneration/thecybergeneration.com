@@ -1,71 +1,141 @@
 @import "bootstrap";
 
 $orange: #ff9933;
-$dark-orange: #a35d17;
+$dark-orange: #B26212;
 $charcoal: #747d7d;
 $dark-charcoal: #444d4d;
+$light-charcoal: #a4adad;
+$blue: #33CFFF;
+$dark-blue: #0088B2;
 
 body {
   font-family: 'Open Sans', sans-serif;
+  border-top: 2px $dark-charcoal solid;
+  padding-top: 15px;
+  font-size: 16px;
 }
 
 h1, h2 {
   font-family: 'Roboto', 'Open Sans', sans-serif;
 }
+h1 {
+  color: $dark-blue;
+  font-weight: 300;
+}
+a {
+  color: $dark-blue;
+  &:hover {
+    color: $blue;
+  }
+}
+.container {
+  max-width: 800px;
+}
 
 .navbar {
-  margin-bottom: 0;
+  margin-bottom: 0px;
   .icon-bar {
     background-color: black;
   }
+  @media (min-width: $screen-sm-min) {
+    margin-bottom: 15px;
+  }
 }
+
+
 .navbar-brand {
+  padding: 15px;
+
   img {
     height: 20px;
     width: auto;
   }
   @media (min-width: $screen-sm-min) {
+    padding: 5px 10px 15px 15px;
     img {
-      height: 100%;
-      width: auto;
+      height: 30px;
     }
-    height: 50px;
-    margin-top: -7px;
-    @media (min-width: $screen-md-min) {
-      height: 70px;
-      margin-top: -4px;
-    }
-    @media (min-width: $screen-lg-min) {
-      height: 90px;
-    }
+
+  }
+  @media (min-width: $screen-md-min) {
+    height: 40px;
+  }
+  @media (min-width: $screen-lg-min) {
+    height: 40px;
   }
 }
 .navbar-nav {
   > li > a {
     text-align: center;
-  }
-  @media (min-width: $screen-md-min) {
-    margin-top: 12px;
-    > li > a {
-      text-align: inherit;
-      font-weight: 400;
-      letter-spacing: 1px;
-      font-family: 'Roboto', 'Open Sans', sans-serif;
-      border-bottom: 3px transparent solid;
-      color: $charcoal;
-      &:hover {
-        background: 0 none;
-        color: black;
-        border-bottom: 3px orange solid;
-      }
+    font-weight: 400;
+    font-size: 15px;
+    letter-spacing: 1px;
+    font-family: 'Roboto', 'Open Sans', sans-serif;
+    color: $charcoal;
+
+    &.active {
+      color: $orange;
     }
-  }
-  @media (min-width: $screen-lg-min) {
-    margin-top: 34px;
-    font-size: 115%;
   }
 }
 
+
+// ====== HOMEPAGE =====================================
+
+body.index {
+  padding-top: 0;
+
+  .navbar {
+    margin-bottom: 0;
+  }
+
+  .container {
+    max-width: none;
+  }
+
+  .navbar-brand {
+    img {
+      height: 20px;
+    }
+    padding: 15px;
+    @media (min-width: $screen-sm-min) {
+      img {
+        height: 100%;
+        width: auto;
+      }
+      height: 50px;
+      margin-top: -7px;
+      @media (min-width: $screen-md-min) {
+        height: 70px;
+        margin-top: -4px;
+      }
+      @media (min-width: $screen-lg-min) {
+        height: 90px;
+      }
+    }
+  }
+  .navbar-nav {
+    > li > a {
+      text-align: center;
+    }
+    @media (min-width: $screen-md-min) {
+      margin-top: 12px;
+      > li > a {
+        text-align: inherit;
+        border-bottom: 3px transparent solid;
+        &:hover {
+          background: 0 none;
+          color: black;
+          border-bottom: 3px orange solid;
+        }
+      }
+    }
+    @media (min-width: $screen-lg-min) {
+      margin-top: 34px;
+      font-size: 115%;
+    }
+  }
+}
 
 .cg-banner {
   background: #06080e url('/images/jumbobg.jpg') top center no-repeat;
@@ -187,5 +257,89 @@ h1, h2 {
         }
       }
     }
+  }
+}
+
+h1.big {
+  font-size: 180%;
+  @media (min-width: $screen-sm-min) {
+    font-size: 300%;
+  }
+  @media (min-width: $screen-md-min) {
+    font-size: 400%;
+  }
+  @media (min-width: $screen-lg-min) {
+    font-size: 480%;
+  }
+  font-weight: 600;
+  color: orange;
+}
+
+.contact {
+  @media (min-width: $screen-sm-min) {
+    font-size: 200%;
+  }
+  .row {
+    margin: 30px 0;
+    text-align: center;
+  }
+  h2 {
+    color: #999;
+    font-weight: 300;
+  }
+}
+// ======= BLOG ===============================
+
+.blog_index {
+  .index {
+    a {
+      &:hover {
+        text-decoration: none;
+      }
+      .post {
+        padding: 15px;
+        color: inherit;
+        &:hover {
+          background: #ddd;
+          text-decoration: none;
+          h2 { color: $dark-blue; }
+          //p { color: $orange; }
+          img { opacity: 1.0; }
+        }
+        img {
+          width: 100%;
+          margin-bottom: 0;
+          opacity: 0.8;
+        }
+        h2 {
+          margin-top: 15px;
+          font-size: 120%;
+        }
+        p {
+          line-height: 1.4em;
+          color: $charcoal;
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}
+.blog {
+  .lead {
+    color: $charcoal;
+  }
+  .meta {
+    color: #bbb;
+    font-size: 90%;
+    .data {
+      color: #999;
+    }
+  }
+  img {
+    margin-bottom: 30px;
+  }
+  p {
+    line-height: 1.8;
+    margin-bottom: 20px;
   }
 }

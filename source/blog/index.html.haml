@@ -1,0 +1,21 @@
+---
+pageable: true
+per_page: 10
+---
+
+.container 
+  .row
+    - if paginate and num_pages > 1
+      %p Page #{page_number} of #{num_pages}
+      - if prev_page
+        %p
+          = link_to 'Previous page', prev_page
+
+  .row
+    - page_articles.each_with_index do |article, i|
+      %a.col-xs-12.col-md-6{href: article.url}
+        .post
+          - unless article.image.nil?
+            = image_tag article.image
+          %h2= article.title
+          %p= article.summary
