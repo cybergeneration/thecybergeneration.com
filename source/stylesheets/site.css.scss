@@ -15,6 +15,9 @@ h1, h2 {
 
 .navbar {
   margin-bottom: 0;
+  .icon-bar {
+    background-color: black;
+  }
 }
 .navbar-brand {
   img {
@@ -38,9 +41,13 @@ h1, h2 {
   }
 }
 .navbar-nav {
+  > li > a {
+    text-align: center;
+  }
   @media (min-width: $screen-md-min) {
     margin-top: 12px;
     > li > a {
+      text-align: inherit;
       font-weight: 400;
       letter-spacing: 1px;
       font-family: 'Roboto', 'Open Sans', sans-serif;
